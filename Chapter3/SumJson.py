@@ -14,9 +14,9 @@ with open("pokemon.json") as f:
         else:
             typePokemon[line["type"]] = typePokemon.get(line["type"]) + 1
 
-with open("sumPokemon.csv", "w") as a:
+with open("pokemonByType.csv", "w") as a:
     w = csv.writer(a)
-    
+    w.writerow(["type","amount"])
     for key, value in sorted(typePokemon.items(), key=lambda x: x[1]):
         w.writerow([key,str(value)])
     
